@@ -11,34 +11,6 @@
  * @return {number[]}
  */
 var findMode = function(root) {
-    // let maxCount = 0
-    // let count = 0
-    // let pre = null
-    // let result = []
-    // const searchBST = (cur) => {
-    //     if(cur === null) return ;
-    //     searchBST(cur.left)
-    //     if(pre === null) {
-    //         count = 1
-    //     }else if (pre.val === cur.val){
-    //         count += 1
-    //     }else{
-    //         count = 1
-    //     }
-    //     pre = cur
-    //     if(count === maxCount){
-    //         result.push(cur.val)
-    //     }
-    //     if(count > maxCount){
-    //         maxCount = count
-    //         result = []
-    //         result.push(cur.val)
-    //     }
-    //     searchBST(cur.right)
-    //     return 
-    // }
-    // searchBST(root)
-    // return result
 
     let maxCount = 0
     let count = 0
