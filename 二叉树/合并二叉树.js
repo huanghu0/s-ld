@@ -29,7 +29,7 @@ var mergeTrees = function(root1, root2) {
     queue.push(root2);
     while (queue.length) {
         let node1 = queue.shift();
-        let node2 = queue.shift();;
+        let node2 = queue.shift();
         node1.val += node2.val;
         if (node1.left !== null && node2.left !== null) {
             queue.push(node1.left);
