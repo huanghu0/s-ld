@@ -33,22 +33,52 @@ var hasPathSum = function(root, targetSum) {
     // }
     // if(!root) return false
     // return  backTracking(root,targetSum - root.val)
-    if(!root) return false
-    let pathStack = [],nodeStack = []
-    nodeStack.push(root)
-    pathStack.push(targetSum - root.val)
-    while(nodeStack.length){
-        let path = pathStack.pop()
-        let node = nodeStack.pop()
-        if(node.left === null && node.right === null && path === 0) return true
-        if(node.right){
-            pathStack.push(path - node.right.val)
-            nodeStack.push(node.right)
-        }
-        if(node.left){
-            pathStack.push(path - node.left.val)
-            nodeStack.push(node.left)
-        }
+
+    // if(!root) return false
+    // let pathStack = [],nodeStack = []
+    // nodeStack.push(root)
+    // pathStack.push(targetSum - root.val)
+    // while(nodeStack.length){
+    //     let path = pathStack.pop()
+    //     let node = nodeStack.pop()
+    //     if(node.left === null && node.right === null && path === 0) return true
+    //     if(node.right){
+    //         pathStack.push(path - node.right.val)
+    //         nodeStack.push(node.right)
+    //     }
+    //     if(node.left){
+    //         pathStack.push(path - node.left.val)
+    //         nodeStack.push(node.left)
+    //     }
+    // }
+    // return false
+
+    let result = false
+    const backTracking = (root,sum) => {
+      if(root.left === null && root.right === null && sum === 0) {
+        result = true
+        return
+      }
+
+      if(root.left === null && root.right === null) return 
+
+
+      if(root.left){
+        sum -= root.left.val
+        backTracking(root.left,sum)
+        sum += root.left.val
+        if(result) return
+      }
+
+      if(root.right){
+        sum -= root.right.val
+        backTracking(root.right,sum)
+        sum += root.right.val
+        if(result) return
+      }
+
     }
-    return false
+    if(root === null) return result
+    backTracking(root,targetSum - root.val)
+    return result
 }
