@@ -451,5 +451,3 @@ setTimeout(() => {
 }, 1000);
 
 myPromise.allSettled([]).then((results) => console.log(results))
-
-  
